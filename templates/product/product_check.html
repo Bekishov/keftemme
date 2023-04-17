@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+  <h1>{{ user.username }}'s Posts</h1>
+  {% for post in posts %}
+    <div>
+      <h2><a href="{% url 'product-detail' post.pk %}">{{ post.title }}</a></h2>
+      <p>{{ post.description }}</p>
+    </div>
+  {% empty %}
+    <p>No posts found.</p>
+  {% endfor %}
+</div>
+{% endblock %}
